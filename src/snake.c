@@ -1,15 +1,6 @@
-#include <stdio.h>
-#include <stdlib.h>
-#include <time.h>
-#include <unistd.h>
-#include <fcntl.h>
+#include "../inc/snake.h"
 
-typedef struct {
-    char x;
-    char y;
-} Point;
-
-void print_board(char board[40][40], Point head) {
+void run_snake(char board[40][40], Point head) {
     int c = 'd'; 
     int alive = 1;
     short highest_score = 0;
@@ -83,13 +74,17 @@ void print_board(char board[40][40], Point head) {
             {
                 highest_score = current_score;
                 FILE* hw = fopen("highscore.txt", "w");
-                if (hw) { fprintf(hw, "%hd", highest_score); fclose(hw); }
+                if (hw) 
+                    { 
+                        fprintf(hw, "%hd", highest_score); fclose(hw); 
+                    }
             }
             do 
             {
                 apple.x = rand() % 40;
                 apple.y = rand() % 40;
-            } while (board[apple.x][apple.y] != 0);
+            }
+            while (board[apple.x][apple.y] != 0);
             board[apple.x][apple.y] = 2;
         }
         else 
@@ -103,7 +98,8 @@ void print_board(char board[40][40], Point head) {
         for (int i = 0; i < 40; i++) 
         {
             printf("\t\t\t\t\t\t"); 
-            for (int j = 0; j < 40; j++) {
+            for (int j = 0; j < 40; j++) 
+            {
                 printf("%s",board[i][j] & 1 ? "🟩" : board[i][j] & 2 ? "🟥" : (i + j) & 1 ? "⬛" : "🟫");
             }
             printf("\n");
@@ -118,12 +114,4 @@ void print_board(char board[40][40], Point head) {
     
     free(snake);
     system("stty icanon echo");
-}
-
-int main() 
-{
-    char board[40][40] = {0};
-    Point head = {20, 20};
-    print_board(board, head);
-    return 0;
 }
