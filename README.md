@@ -1,8 +1,8 @@
-# Snake Game (C)
+# Snake Game 🐍
 
 A classic Snake game implemented in C for Linux terminals. This project features non-blocking input, high-score persistence, and a modular project structure.
 
-## Project Structure
+## 🧩 Project Structure
 
 * src/: Implementation files.
     * main.c: Handles program flow and user input.
@@ -11,30 +11,29 @@ A classic Snake game implemented in C for Linux terminals. This project features
     * snake.h: Function prototypes and definitions.
 * Makefile: Build automation script.
 
-## Getting Started
-
-## Prerequisites
+## ⚙️ Prerequisites
 
 * A C compiler (GCC recommended)
 * make build utility
 
-## Building the Project
+## 🛠️ Building the Project
 
 To compile the project and create the executable, run:
 
 ```bash
-make
-
-Running the Game
+make 
+```
+## 🚀 Running the Game
 To start the application, run the generated executable:
 
-Bash
+```bash
 ./snake_game
-Controls
-W: Move Up
+```
+# 🎮 Controls
+**⬆️ W**: Move Up
 
-S: Move Down
+**⬇️ S**: Move Down
 
-A: Move Left
+**⬅️ A**: Move Left
 
-D: Move Right
+**➡️ D**: Move Right
