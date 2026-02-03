@@ -104,9 +104,7 @@ void print_board(char board[40][40], Point head) {
         {
             printf("\t\t\t\t\t\t"); 
             for (int j = 0; j < 40; j++) {
-                if (board[i][j] == 1) printf("🟩");
-                else if (board[i][j] == 2) printf("🟥");
-                else printf("%s", (i + j) % 2 == 0 ? "⬛" : "🟫");
+                printf("%s",board[i][j] & 1 ? "🟩" : board[i][j] & 2 ? "🟥" : (i + j) & 1 ? "⬛" : "🟫");
             }
             printf("\n");
         }
